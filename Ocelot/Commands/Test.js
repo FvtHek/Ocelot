@@ -4,7 +4,8 @@ exports.run = async (Ocelot, msg, args) => {
         msg.channel.send(`${msg.author} You are not permitted to run this command!`);
     }else{
         if(!args || args.size < 1) return msg.reply("Please enter a valid file name!")
-        console.log("test succesfull");
+        msg.channel.send('Test Succesful')
+        console.log("test succesful");
     }
 };
 
