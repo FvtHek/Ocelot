@@ -57,9 +57,9 @@ function update() {
         }
         body = JSON.parse(res);
         var status = 'Server offline';
-        console.log(body.motd);
+        console.log(body.description.text);
         if(body.online) {
-            if((body.motd=="&cWe are under maintenance.")||(body.players.now>=body.players.max)){
+            if((body.description.text=="&cWe are under maintenance.")||(body.players.now>=body.players.max)){
               Ocelot.user.setStatus('idle')
               //.then(console.log)
               .catch(console.error);
@@ -69,7 +69,7 @@ function update() {
               .catch(console.error);
             }
               if(body.players.now) {
-                  status = ' ' + body.players.now + '  of  ' + body.players.max;
+                  status = ' ' + body.players.online + '  of  ' + body.players.max;
                 } else {
                   status = ' 0  of  ' + body.players.max;
           }
