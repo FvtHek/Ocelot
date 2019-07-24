@@ -3,6 +3,11 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const Ocelot = new Discord.Client({disableEveryone: true});
 Ocelot.commands = new Discord.Collection();
+var mcping = require('mc-ping-updated');
+var statustring = "No signal";
+var mcCommand = '/minecraft'; // Command for triggering
+var mcIP = config.ip; // Your MC server IP
+var mcPort = config.port; // Your MC server port
 
 fs.readdir("./Commands/", (err, files) => {
     if(err) console.log(err);
