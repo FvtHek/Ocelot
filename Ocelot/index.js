@@ -24,4 +24,18 @@ Ocelot.on("ready", async () => {
     Ocelot.user.setActivity("you sleep O_O *meow*", {type:'WATCHING'});
 });
 
+Ocelot.on("message", async message => {
+    if(message.author.Ocelot) return;
+    if(message.channel.type === "dm") return;
+
+let prefix = "/mc ";
+let messageArray = message.content.split(" ");
+let cmd = messageArray[0];
+let args = messageArray.slice(1);
+
+let commandfile = Ocelot.commands.get(cmd.slice(prefix.length));
+if(commandfile) commandfile.run(Ocelot,message,args);
+
+});
+
 Ocelot.login(config.token);
