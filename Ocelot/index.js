@@ -12,7 +12,7 @@ fs.readdir("./Commands/", (err, files) => {
         return;
     }
 
-    jsfile.forEach((f, i) => {
+    jsfile.forEach((f, i) =>{
         let props = require(`./Commands/${f}`);
         console.log(`${f} loaded succesfully!`);
         Ocelot.commands.set(props.help.name, props);
