@@ -20,7 +20,7 @@ fs.readdir("./Commands/", (err, files) => {
 });
 
 Ocelot.on("ready", async () => {
-    console.log(`${Ocelot.user.username} is active! I am in ${Ocelot.guilds.size} Servers!`)
+    console.log(`${Ocelot.user.username} is active! I am in ${Ocelot.guilds.size} Server(s)!`)
     Ocelot.user.setActivity("you sleep O_O *meow*", {type:'WATCHING'});
 });
 
@@ -28,7 +28,7 @@ Ocelot.on("message", async message => {
     if(message.author.Ocelot) return;
     if(message.channel.type === "dm") return;
 
-let prefix = "/mc ";
+let prefix = "&";
 let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
 let args = messageArray.slice(1);
