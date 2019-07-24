@@ -26,7 +26,7 @@ fs.readdir("./Commands/", (err, files) => {
 
 Ocelot.on("ready", async () => {
     console.log(`${Ocelot.user.username} is active! I am in ${Ocelot.guilds.size} Server(s)!`)
-    Ocelot.user.setActivity("you sleep O_O *meow*", {type:'WATCHING'});
+    Ocelot.setInterval(update,300);
 });
 
 Ocelot.on("message", async message => {
@@ -42,5 +42,44 @@ let commandfile = Ocelot.commands.get(cmd.slice(prefix.length));
 if(commandfile) commandfile.run(Ocelot,message,args);
 
 });
+
+function update() {
+    /*seconds = seconds + 1;
+    secondsString = seconds.toString();
+    Ocelot.user.setActivity(secondsString, { type: 'Playing' })
+    .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
+    .catch(console.error);*/
+  
+      mcping(mcIP, mcPort, function(err, res) {
+        if(err) {
+            console.log(err);
+            //return message.reply('Error getting Minecraft server status...');
+        }
+        body = JSON.parse(res);
+        var status = 'Server offline';
+        console.log(body.motd);
+        if(body.online) {
+            if((body.motd=="&cWe are under maintenance.")||(body.players.now>=body.players.max)){
+              Ocelot.user.setStatus('idle')
+              //.then(console.log)
+              .catch(console.error);
+            }else{
+              Ocelot.user.setStatus('online')
+              //.then(console.log)
+              .catch(console.error);
+            }
+              if(body.players.now) {
+                  status = ' ' + body.players.now + '  of  ' + body.players.max;
+                } else {
+                  status = ' 0  of  ' + body.players.max;
+          }
+        } 
+
+    Ocelot.user.setActivity(status, { type: 'PLAYING' })
+    .then(presence => console.log(status))
+    .catch(console.error);
+    });
+  
+  }
 
 Ocelot.login(config.token);
