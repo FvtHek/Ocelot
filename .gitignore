@@ -135,3 +135,6 @@ fabric.properties
 
 # Disable all jetbrains files
 .idea/*
+
+# disable token to be displayed in git
+./Ocelot/token.json
