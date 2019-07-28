@@ -137,5 +137,4 @@ fabric.properties
 .idea/*
 
 # disable token to be displayed in git
-./Ocelot/token.json
-Ocelot/token.json
+Ocelot\token.json
