@@ -1,4 +1,5 @@
 const config = require('./config.json');
+const token = require('./token.json');
 var mcping = require('mc-ping-updated');
 const Discord = require('discord.js');
 const fs = require('fs');
@@ -8,7 +9,7 @@ Ocelot.commands = new Discord.Collection();
 var statustring = "No signal";
 var mcCommand = '/minecraft'; // Command for triggering
 
-Ocelot.login(config.token);
+Ocelot.login(token.token);
 
 fs.readdir("./Commands/", (err, files) => {
     if(err) console.log(err);
