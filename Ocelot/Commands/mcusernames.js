@@ -1,14 +1,17 @@
 module.exports.run = async (Ocelot, msg, args) => {
-  if (msg.content.startsWith ("link")) {
-    username = msg.content.slice (5);
-    Ocelot.usernames [msg.author.id] = {
-      mcusername: msg.content
+  Ocelot.usernames = [];
+  Ocelot.on ("message", (msg) => {
+    if (message.content.startsWith ("link")) {
+      mcusername = message.content.slice (5);
+      Ocelot.usernames [message.author.id] = {
+        minecraftusername: mcusername
+      }
+      fs.writeFile ("Ocelot\Files\mcusernames.json", JSON.stringify (Ocelot.usernames, null, 4), err => {
+        if (err) throw err;
+        message.channel.send ("username for " + message.author.username + " saved");
+      });
     }
-    false.writeFile ("./Files/mcusernames.json", JSON.stringify (Ocelot.usernames, null, 4), err => {
-      if (err) throw err;
-      msg.channel.send ("username for " + msg.author.username + "saved")
-    });
-  }
+});
 }
 
 
