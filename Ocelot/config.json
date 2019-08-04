@@ -1,6 +1,8 @@
 {
-    "token":"NjAzNjAyODI0NTgwMDM4Njg4.XUbVQA.Dr_baMKuqAzyMvpWdwOlYukUqAI",
+    "token":"",
     "ip": "86.85.221.165",
     "port": 25567,
-    "prefix":"&"
+    "prefix":"&",
+    "server": "192.168.2.15",
+    "MAC": "78:2b:cb:45:4c:f9"
 }
