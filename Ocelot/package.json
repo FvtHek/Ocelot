@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.5.1",
-    "mc-ping-updated": "^0.1.0"
+    "mc-ping-updated": "^0.1.0",
+    "node-wol": "^0.1.1"
   }
 }
