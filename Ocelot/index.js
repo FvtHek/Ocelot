@@ -1,5 +1,5 @@
 const config = require('./config.json');
-var mcping = require('mc-ping-updated');
+const mcping = require('mc-ping-updated');
 const Discord = require('discord.js');
 const fs = require('fs');
 const Ocelot = new Discord.Client({disableEveryone: true});
@@ -56,7 +56,6 @@ function update() {
             //return message.reply('Error getting Minecraft server status...');
 
         } else {
-            console.log(res);
             console.log(JSON.stringify(res.description.text));
 
             if((res.description.text === 'We are under maintenance.')){
